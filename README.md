@@ -1,1 +1,1 @@
-# basic-calculator
+This is a project about a calculator that contains functions for all the basic math operators.
