@@ -46,15 +46,34 @@ button {
   border-radius: 5px;
 }
 
+.number-button:active {
+  background-color: #5494DA;
+  color: white;
+}
+
 #clear-button {
   background-color: #7F0404;
   color: white;
+}
+
+#clear-button:active {
+  background-color: #460202
 }
 
 .operator-button {
   background-color: #FFC000;
 }
 
+.operator-button:active {
+  background-color: #5D3FD3;
+  color: white;
+}
+
 #equal-operator-button {
   background-color: #FFC000;
+}
+
+#equal-operator-button:active {
+  background-color: #5D3FD3;
+  color: white;
 }
