@@ -78,3 +78,10 @@ for (let operator of operators) {
     operatorSelected = operator.textContent;
   });
 }
+
+const equalOperatorButton = document.querySelector("#equal-operator-button");
+
+//Function that handles an operation when the equal operator is clicked.
+equalOperatorButton.addEventListener("click", () => {
+  display.textContent = operate(+firstNumber, operatorSelected, +secondNumber)
+})
