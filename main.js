@@ -22,8 +22,7 @@ let secondNumber = "";
 
 //State flags:
 let isOperatorSelected = false; //State flag for if an operator is clicked.
-let clearDisplay = false; //State for it the display should be cleared.
-let changeOperatorButtonColor = false;
+let clearDisplay = false; //State flag for if the display should be cleared.
 
 //Function that determines which operation is current
 function operate(a, operator, b) {
@@ -62,6 +61,7 @@ for (let button of buttons) {
 
       secondNumber += button.textContent; 
       display.textContent += button.textContent;
+      isOperatorSelected = false;
     }
   });
 
@@ -73,9 +73,20 @@ const operators = document.querySelectorAll(".operator-button");
 for (let operator of operators) {
 
   operator.addEventListener("click", () => {
-    isOperatorSelected = true;
-    clearDisplay = true;
-    operatorSelected = operator.textContent;
+
+    if (!operatorSelected) {
+      isOperatorSelected = true;
+      clearDisplay = true;
+      operatorSelected = operator.textContent;
+    } else {
+      isOperatorSelected = true;
+      clearDisplay = true;
+      let resultOfOperation = operate(+firstNumber, operatorSelected, +secondNumber);
+      display.textContent = resultOfOperation;
+      firstNumber = resultOfOperation;
+      operatorSelected = operator.textContent;
+      secondNumber = "";
+    }
   });
 }
 
@@ -83,5 +94,9 @@ const equalOperatorButton = document.querySelector("#equal-operator-button");
 
 //Function that handles an operation when the equal operator is clicked.
 equalOperatorButton.addEventListener("click", () => {
-  display.textContent = operate(+firstNumber, operatorSelected, +secondNumber)
-})
+  let resultOfOperation = operate(+firstNumber, operatorSelected, +secondNumber);
+  display.textContent = resultOfOperation;
+  firstNumber = resultOfOperation;
+  operatorSelected = "";
+  secondNumber = "";
+});
