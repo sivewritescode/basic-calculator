@@ -65,7 +65,6 @@ for (let button of buttons) {
 
       secondNumber += button.textContent; 
       display.textContent += button.textContent;
-      isOperatorSelected = false;
     }
   });
 
